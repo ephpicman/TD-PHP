@@ -1,0 +1,72 @@
+{
+    "name": "ephpicman/nex",
+    "description": "A modern framework for building scalable WordPress plugins.",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+
+    "keywords": [
+        "wordpress",
+        "framework",
+        "plugin",
+        "php",
+        "dependency-injection",
+        "container",
+        "architecture",
+        "developer-tools"
+    ],
+
+    "homepage": "https://github.com/EphpicMan/Nex",
+
+    "support": {
+        "issues": "https://github.com/EphpicMan/Nex/issues",
+        "source": "https://github.com/EphpicMan/Nex"
+    },
+
+    "authors": [
+        {
+            "name": "Sina Kuhestani",
+            "email": "sinakuhestani@gmail.com",
+            "homepage": "https://github.com/EphpicMan",
+            "role": "Developer"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Nex\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+
+    "require": {
+        "php": "^8.2"
+    },
+
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "phpstan/phpstan": "^2.2",
+        "phpunit/phpunit": "^11.5",
+        "vimeo/psalm": "^6.16"
+    },
+
+    "scripts": {
+        "test": "phpunit",
+        "analyze:phpstan": "phpstan analyze",
+        "analyze:psalm": "psalm",
+        "format": "php-cs-fixer fix",
+        "check-all": [
+            "@format",
+            "@analyze:phpstan",
+            "@analyze:psalm",
+            "@test"
+        ]
+    },
+
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

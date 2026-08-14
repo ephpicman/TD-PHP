@@ -1,0 +1,6 @@
+parameters:
+    level: 5 # از سطح 0 تا 9. سطح 5 تعادل خوبی بین دقت و سرعت ایجاد می‌کند.
+    paths:
+        - src
+    excludePaths:
+        - vendor
