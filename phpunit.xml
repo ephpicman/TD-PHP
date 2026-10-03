@@ -7,7 +7,7 @@
          failOnWarning="true">
 
     <testsuites>
-        <testsuite name="Nex Test Suite">
+        <testsuite name="TD-PHP Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

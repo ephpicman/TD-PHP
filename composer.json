@@ -1,13 +1,23 @@
 {
-    "name": "ephpicman/nex",
-    "description": "A modern framework for building scalable WordPress plugins.",
-    "type": "wordpress-plugin",
+    "name": "ephpicman/td-php",
+    "description": "A test-driven PHP project skeleton with PHPUnit, PHPStan, Psalm, and PHP CS Fixer preconfigured.",
+    "type": "project",
     "license": "GPL-3.0-or-later",
-    "keywords": ["wordpress", "framework", "plugin", "php", "dependency-injection", "container", "architecture", "developer-tools"],
-    "homepage": "https://github.com/EphpicMan/Nex",
+    "keywords": [
+        "php",
+        "skeleton",
+        "template",
+        "test-driven-development",
+        "testing",
+        "phpunit",
+        "phpstan",
+        "psalm",
+        "php-cs-fixer"
+    ],
+    "homepage": "https://github.com/EphpicMan/TD-PHP",
     "support": {
-        "issues": "https://github.com/EphpicMan/Nex/issues",
-        "source": "https://github.com/EphpicMan/Nex"
+        "issues": "https://github.com/EphpicMan/TD-PHP/issues",
+        "source": "https://github.com/EphpicMan/TD-PHP"
     },
     "authors": [
         {
@@ -19,7 +29,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Nex\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
