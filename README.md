@@ -51,6 +51,54 @@ Install dependencies:
 composer install
 ```
 
+## Customising the skeleton
+
+TD-PHP is a starting point, not a fixed architecture. After copying or using the skeleton for a real project, review these configuration points.
+
+| Area | Where | What you can change |
+| --- | --- | --- |
+| Project identity | `composer.json` | Package name, description, keywords, homepage, and authors. |
+| PHP version | `composer.json` | Change the `php` constraint to the versions your project supports. |
+| Namespace | `composer.json` | Replace `App\\` with your project's production namespace. |
+| Test namespace | `composer.json` | Replace `Tests\\` if your test namespace follows a different convention. |
+| Dependencies | `composer.json` | Add the runtime and development packages your project actually needs. |
+| Test layout | `phpunit.xml` | Change the test-suite directories or add additional suites. |
+| PHPStan scope/level | `phpstan.neon` | Change analysed paths and the analysis level to match the project. |
+| Psalm scope/strictness | `psalm.xml` | Change analysed directories and error level as the project evolves. |
+| Formatting rules | `.php-cs-fixer.dist.php` | Adjust the fixer rules and directories to match the project's coding standard. |
+| Coverage | `composer.json` / PHPUnit config | Keep coverage diagnostic, or add a project-specific coverage policy if one is justified. |
+| CI PHP versions | `.github/workflows/ci.yml` | Change the supported PHP matrix and the PHP version used for quality checks. |
+| CI checks | `.github/workflows/ci.yml` | Add, remove, or split jobs when the project's verification requirements change. |
+
+### Namespace and package identity
+
+The skeleton uses:
+
+```text
+App\\ => src/
+Tests\\ => tests/
+```
+
+For a real project, replace these placeholders with the project's actual namespaces and update the corresponding directories if necessary.
+
+### Static-analysis strictness
+
+PHPStan starts at level 8 and analyses `src/`. Psalm analyses both `src/` and `tests/` because PHPUnit discovers test classes at runtime and they are still useful to analyse.
+
+If a project needs a different balance between adoption effort and strictness, adjust the analyser configuration deliberately. Prefer fixing real findings over adding broad suppressions.
+
+### Formatting policy
+
+PHP CS Fixer provides the repository's baseline formatting rules. Projects can change the rule set, allow or forbid risky rules, and change which directories are formatted.
+
+Keep formatting changes intentional: the skeleton should enforce a consistent policy, not continually rewrite unrelated code.
+
+### CI matrix and quality gate
+
+The CI workflow currently tests PHPUnit against PHP 8.2 through 8.5 and runs static analysis and formatting checks on PHP 8.5.
+
+If your project supports a different PHP range, update the matrix accordingly. If a tool has compatibility requirements that differ from the runtime matrix, keep those concerns explicit rather than silently relying on one PHP version.
+
 ## Development commands
 
 ### Run tests
@@ -83,7 +131,7 @@ PHPStan analyses the production source tree.
 composer analyze:psalm
 ```
 
-Psalm provides an independent static-analysis pass over the production source tree.
+Psalm provides an independent static-analysis pass over the production and test source trees.
 
 ### Check formatting
 
