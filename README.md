@@ -55,7 +55,7 @@ The report is written to `build/coverage/`.
 composer analyze:phpstan
 ~~~
 
-PHPStan is configured at level 9. The intent is to keep the baseline strict rather than gradually accumulating a large type-analysis backlog.
+PHPStan is configured at level 5 for the current source tree. The baseline should be raised only after the existing application code is made clean at the next level; a strict level without a passing codebase is not a useful quality gate. The intent is to keep the baseline strict rather than gradually accumulating a large type-analysis backlog.
 
 ### Run Psalm
 
