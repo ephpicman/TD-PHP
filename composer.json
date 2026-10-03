@@ -2,7 +2,7 @@
     "name": "ephpicman/td-php",
     "description": "A test-driven PHP project skeleton with PHPUnit, PHPStan, Psalm, and PHP CS Fixer preconfigured.",
     "type": "project",
-    "license": "GPL-3.0-or-later",
+    "license": "MIT",
     "keywords": [
         "php",
         "skeleton",
