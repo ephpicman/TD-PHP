@@ -6,11 +6,11 @@
     "keywords": [
         "php",
         "phpunit",
+        "phpstan",
         "psalm",
         "php-cs-fixer",
-        "phpstan",
-        "testing",
-        "test-driven-development"
+        "test-driven-development",
+        "testing"
     ],
     "homepage": "https://github.com/EphpicMan/TD-PHP",
     "support": {
@@ -27,12 +27,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "require": {
