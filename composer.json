@@ -5,17 +5,19 @@
     "license": "MIT",
     "keywords": [
         "php",
+        "skeleton",
+        "template",
+        "test-driven-development",
+        "testing",
         "phpunit",
         "phpstan",
         "psalm",
-        "php-cs-fixer",
-        "test-driven-development",
-        "testing"
+        "php-cs-fixer"
     ],
     "homepage": "https://github.com/EphpicMan/TD-PHP",
     "support": {
-        "issues": "https://github.com/ephpicman/TD-PHP/issues",
-        "source": "https://github.com/ephpicman/TD-PHP"
+        "issues": "https://github.com/EphpicMan/TD-PHP/issues",
+        "source": "https://github.com/EphpicMan/TD-PHP"
     },
     "authors": [
         {
