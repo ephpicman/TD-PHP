@@ -44,6 +44,7 @@ The repository does not try to prescribe an application architecture. It gives y
 
 - PHP 8.2 or newer.
 - Composer 2.x.
+- For HTML coverage reports: **Xdebug** or **PCOV** enabled in the PHP environment.
 
 Install dependencies:
 
@@ -101,7 +102,11 @@ If your project supports a different PHP range, update the matrix accordingly. I
 
 ## Development commands
 
-### Run tests
+### Write and run unit tests
+
+Tests are written with PHPUnit. Before adding tests, read the [official PHPUnit documentation](https://docs.phpunit.de/en/11.5/writing-tests-for-phpunit.html), especially its guidance on writing tests and assertions.
+
+Add unit tests under `tests/Unit/` and run them with:
 
 ```bash
 composer test
@@ -114,6 +119,8 @@ composer test:coverage
 ```
 
 The report is generated under `build/coverage/`.
+
+This command requires a code-coverage driver. Install and enable either [Xdebug](https://xdebug.org/docs/install) or [PCOV](https://github.com/krakjoe/pcov) for the PHP environment running PHPUnit. The GitHub Actions workflow also runs this command with Xdebug enabled and uploads the HTML report as a workflow artifact.
 
 Coverage is provided as a diagnostic tool. TD-PHP does not impose an arbitrary coverage percentage: meaningful tests matter more than maximising a number.
 
@@ -147,6 +154,18 @@ Apply formatting:
 composer format
 ```
 
+### Check dependencies for known vulnerabilities
+
+```bash
+composer audit
+```
+
+The CI workflow runs this check after installing dependencies. It reports known security advisories affecting the resolved dependency versions; it does not guarantee that dependencies are free of all vulnerabilities.
+
+### Dependency lock file
+
+This repository is a reusable project template and intentionally does not commit `composer.lock`. When you create a real project from the template, run `composer install` to resolve dependencies, then commit the generated `composer.lock` in that project so its dependency versions are reproducible.
+
 ### Run the complete quality gate
 
 ```bash
@@ -175,7 +194,6 @@ The verification command does not rewrite source files.
 ├── .gitignore
 ├── .php-cs-fixer.dist.php
 ├── composer.json
-├── composer.lock
 ├── phpstan.neon
 ├── phpunit.xml
 ├── psalm.xml
