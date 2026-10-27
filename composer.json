@@ -5,19 +5,17 @@
     "license": "MIT",
     "keywords": [
         "php",
-        "skeleton",
-        "template",
-        "test-driven-development",
-        "testing",
         "phpunit",
-        "phpstan",
         "psalm",
-        "php-cs-fixer"
+        "php-cs-fixer",
+        "phpstan",
+        "testing",
+        "test-driven-development"
     ],
     "homepage": "https://github.com/EphpicMan/TD-PHP",
     "support": {
-        "issues": "https://github.com/EphpicMan/TD-PHP/issues",
-        "source": "https://github.com/EphpicMan/TD-PHP"
+        "issues": "https://github.com/ephpicman/TD-PHP/issues",
+        "source": "https://github.com/ephpicman/TD-PHP"
     },
     "authors": [
         {
@@ -29,12 +27,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\\\": "tests/"
         }
     },
     "require": {
@@ -44,6 +42,7 @@
         "friendsofphp/php-cs-fixer": "^3.95",
         "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^11.5",
+        "psalm/plugin-phpunit": "^0.20.4",
         "vimeo/psalm": "^6.16"
     },
     "scripts": {
