@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
+      - name: Audit dependencies
+        run: composer audit
+
       - name: Run PHPUnit
         run: composer test
 
@@ -73,3 +76,35 @@ jobs:
 
       - name: Run Psalm
         run: composer analyze:psalm
+
+  coverage:
+    name: PHPUnit coverage (PHP 8.5)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP with Xdebug
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          coverage: xdebug
+          tools: composer:v2
+
+      - name: Validate Composer configuration
+        run: composer validate --strict
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Run PHPUnit with coverage
+        run: composer test:coverage
+
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: phpunit-coverage-report
+          path: build/coverage/
+          if-no-files-found: error
+          retention-days: 14
